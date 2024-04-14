@@ -47,31 +47,50 @@ const ShowEmployees = () => {
     }
 
   return (
-    <div>
-      <h1>EMPLOYEES LIST</h1>
+    <div className='App'>
+      <h1 className='col-lg-12 offset-lg-1'>EMPLOYEES LIST</h1>
       <div className='container-fluid'>
-        <div className='row mt-3'>
-          <div className='col-12 col-lg-8 offset-0 offset-lg-0'>
+        <div className='row mt-5'>
+          <div className='col-lg-12 offset-lg-1'>
             <div className='table-responsive'>
-              <div className='table table-bordered'>
+              <div className='table'>
                 <thead>
-                  <tr><th>EMPLOYEE_ID</th><th>FIRST_NAME</th><th>LAST_NAME</th><th>ROLE</th><th>SALARY</th></tr>
+                  <tr>
+                  	<th><i className="fas fa-user"></i>
+                      	{' '}EMPLOYEE_ID
+                    </th>
+                    <th>
+                    	FIRST_NAME
+                    </th>
+                    <th>
+                    	LAST_NAME
+                    </th>
+                    <th>
+                    	ROLE
+                    </th>
+                    <th>
+                    	SALARY
+                    </th>
+                   </tr>
                 </thead>
                 <tbody className='table-group-divider'>
                   {employees.map( (employee,i) => (
                     <tr key={employee.employeeId}>
-                      <td>{employee.employeeId}</td>
+                      <td>
+                      	<i className="fas fa-user"></i>
+                      	{' '}{employee.employeeId}
+                      </td>
                       <td>{employee.firstName}</td>
                       <td>{employee.lastName}</td>
                       <td>{employee.role}</td>
                       <td>{employee.salary}</td>
                       <td>
                       	<Link to={'/update/'+employee.employeeId}>
-				        	<button>UPDATE</button>
+				        	<button className='btn btn-info '>UPDATE</button>
 				       	</Link>
 				       </td>
                       <td>
-	                      <button data-bs-toggle='modal' data-bs-target='#modalDelete' 
+	                      <button className='btn btn-info' data-bs-toggle='modal' data-bs-target='#modalDelete' 
 	                      onClick={() => handleShow(employee.employeeId,employee.firstName,employee.lastName)}>
 	                      		DELETE                
 					      </button>
@@ -85,7 +104,7 @@ const ShowEmployees = () => {
           </div>
         </div>
         <Link to="/create">
-        	<button>New</button>
+        	<button className='btn btn-primary col-lg-1 offset-lg-1'>New</button>
         </Link>
       </div>
       <div id='modalDelete' className='modal fade' aria-hidden='true'>
