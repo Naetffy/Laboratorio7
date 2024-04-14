@@ -21,7 +21,7 @@ public class EmployeeService {
     }
 
     public Employee getEmployee(String employeeId) {
-        return employeeRepository.findByEmployeeId(employeeId).get(1);
+        return employeeRepository.findByEmployeeId(employeeId).get(0);
     }
 
     public List<Employee> getAllEmployees() {
@@ -29,14 +29,14 @@ public class EmployeeService {
     }
 
     public Employee updateEmployee(Employee employee) {
-        if (employeeRepository.findByEmployeeId(employee.getEmployeeId()).size() == 0) {
+        if (employeeRepository.findByEmployeeId(employee.getEmployeeId()).size() != 0) {
             return employeeRepository.save(employee);
         }
         return null;
     }
 
     public void deleteEmployee(String employeeId) {
-    	employeeRepository.findByEmployeeId(employeeId);
+    	employeeRepository.deleteById(employeeId);
     }
 
 

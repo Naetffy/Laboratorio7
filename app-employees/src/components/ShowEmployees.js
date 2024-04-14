@@ -10,6 +10,28 @@ const ShowEmployees = () => {
     const url = 'http://localhost:8080/employee/api/employees';
     const [employees, setEmployees] = useState([]);
 
+	const [EMPLOYEE_ID, setEMPLOYEE_ID] = useState('');
+    const [FIRST_NAME, setFIRST_NAME] = useState('');
+    const [LAST_NAME, setLAST_NAME] = useState('');
+	
+	const handleShow = (employeeId, firstName, lastName) => {
+		setEMPLOYEE_ID(employeeId);
+		setFIRST_NAME(firstName);
+		setLAST_NAME(lastName);
+	}
+	
+	const deleteToApi = async () => {
+	  try {
+	    var url = 'http://localhost:8080/employee/api/employee/' + EMPLOYEE_ID;
+	    const response = await axios.delete(url);
+	    console.log(response);
+	    // Redireccionar después de la eliminación exitosa
+	    window.location.href = '/';
+	  } catch (error) {
+	    console.error(error);
+	  }
+	}
+	
     useEffect( ()=>{
         getEmployees();
     }, []);
@@ -28,7 +50,6 @@ const ShowEmployees = () => {
     <div>
       <h1>EMPLOYEES LIST</h1>
       <div className='container-fluid'>
-        <h2>title</h2>
         <div className='row mt-3'>
           <div className='col-12 col-lg-8 offset-0 offset-lg-0'>
             <div className='table-responsive'>
@@ -44,6 +65,17 @@ const ShowEmployees = () => {
                       <td>{employee.lastName}</td>
                       <td>{employee.role}</td>
                       <td>{employee.salary}</td>
+                      <td>
+                      	<Link to={'/update/'+employee.employeeId}>
+				        	<button>UPDATE</button>
+				       	</Link>
+				       </td>
+                      <td>
+	                      <button data-bs-toggle='modal' data-bs-target='#modalDelete' 
+	                      onClick={() => handleShow(employee.employeeId,employee.firstName,employee.lastName)}>
+	                      		DELETE                
+					      </button>
+        			  </td>
                     </tr>
                   ))
                   }
@@ -56,7 +88,19 @@ const ShowEmployees = () => {
         	<button>New</button>
         </Link>
       </div>
+      <div id='modalDelete' className='modal fade' aria-hidden='true'>
+      	<div className='modal-dialog'>
+      		<div className='modal-content'>
+      			<div className='modal-header'>
+	      			<h3>{"Are you sure you want to delete " + FIRST_NAME + " " + LAST_NAME + " employee?"}</h3>
+	      			<button onClick={deleteToApi}>YES</button><button data-bs-dismiss='modal'>NO</button>
+      			</div>
+      		</div>
+      	</div>
+      	
+      </div>
     </div>
+    
   )
 }
 
