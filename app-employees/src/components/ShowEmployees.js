@@ -83,7 +83,7 @@ const ShowEmployees = () => {
                       <td>{employee.firstName}</td>
                       <td>{employee.lastName}</td>
                       <td>{employee.role}</td>
-                      <td>{employee.salary}</td>
+                      <td>${new Intl.NumberFormat('es-CO').format(employee.salary)}</td>
                       <td>
                       	<Link to={'/update/'+employee.employeeId}>
 				        	<button className='btn btn-info '>UPDATE</button>
@@ -107,13 +107,14 @@ const ShowEmployees = () => {
         	<button className='btn btn-primary col-lg-1 offset-lg-1'>New</button>
         </Link>
       </div>
-      <div id='modalDelete' className='modal fade' aria-hidden='true'>
+      <div id='modalDelete' className='modal fade col-12' aria-hidden='true'>
       	<div className='modal-dialog'>
       		<div className='modal-content'>
-      			<div className='modal-header'>
+      			<div className='text-center modal-header'>
 	      			<h3>{"Are you sure you want to delete " + FIRST_NAME + " " + LAST_NAME + " employee?"}</h3>
-	      			<button onClick={deleteToApi}>YES</button><button data-bs-dismiss='modal'>NO</button>
       			</div>
+      			<button onClick={deleteToApi} className='btn btn-info mb-1 mt-1 col-4 offset-4'>YES</button>
+      			<button data-bs-dismiss='modal' className='btn btn-info mb-1 col-4 offset-4'>NO</button>
       		</div>
       	</div>
       	

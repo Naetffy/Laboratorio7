@@ -47,28 +47,44 @@ const UpdateEmployee = () => {
     }
 	
 	return (
-	<div class="container">
-		<h1>{"UPDATE EMPLOYEE WITH ID " + employeeId}</h1>
-		<form onSubmit={updateToApi}>
-			<div class="form-group">
-				<label for="FIRST_NAME">FIRST_NAME</label>
-				<input type="text" class="form-control" id="FIRST_NAME" value={FIRST_NAME}
-				onChange={(e) => setFIRST_NAME(e.target.value)}></input>
+	<div>
+		<h1 className='col-12 offset-1 col-lg-12 offset-lg-1'>{"UPDATE EMPLOYEE WITH ID " + employeeId}</h1>
+		<form onSubmit={updateToApi} className='col-lg-12 offset-lg-1 mt-5'>
+			<div class="form-group col-2">
+			    <div class="input-group mb-3">
+			        <div class="input-group-prepend col-5">
+			            <label style={{ backgroundColor:'lightblue'}} class="input-group-text" id="basic-addon2" for="FIRST_NAME">FIRST_NAME</label>
+                    </div>
+                	<input type="text" class="form-control" id="FIRST_NAME" placeholder="FIRST_NAME"
+                				onChange={(e) => setFIRST_NAME(e.target.value)} required='true' aria-describedby="basic-addon2"></input>
+			    </div>
 			</div>
-			<div class="form-group">
-				<label for="LAST_NAME">LAST_NAME</label>
-				<input type="text" class="form-control" id="LAST_NAME" value={LAST_NAME}
-				onChange={(e) => setLAST_NAME(e.target.value)}></input>
+			<div class="form-group col-2">
+			    <div class="input-group mb-3">
+			        <div class="input-group-prepend col-5">
+			            <label style={{ backgroundColor:'lightblue'}} class="input-group-text" id="basic-addon3" for="LAST_NAME">LAST_NAME</label>
+                    </div>
+                	<input type="text" class="form-control" id="LAST_NAME" placeholder="LAST_NAME"
+                				onChange={(e) => setLAST_NAME(e.target.value)} required='true' aria-describedby="basic-addon3"></input>
+			    </div>
 			</div>
-			<div class="form-group">
-				<label for="ROLE">ROLE</label>
-				<input type="text" class="form-control" id="ROLE" value={ROLE}
-				onChange={(e) => setROLE(e.target.value)}></input>
+            <div class="form-group col-2">
+			    <div class="input-group mb-3">
+			        <div class="input-group-prepend col-5">
+			            <label style={{ backgroundColor:'lightblue'}} class="input-group-text" id="basic-addon4" for="ROLE">ROLE</label>
+                    </div>
+                	<input type="text" class="form-control" id="ROLE" placeholder="ROLE"
+                				onChange={(e) => setROLE(e.target.value)} required='true' aria-describedby="basic-addon4"></input>
+			    </div>
 			</div>
-			<div class="form-group">
-				<label for="SALARY">SALARY</label>
-				<input type="text" class="form-control" id="SALARY" value={SALARY}
-				onChange={(e) => setSALARY(e.target.value)}></input>
+            <div class="form-group col-2">
+			    <div class="input-group mb-3">
+			        <div class="input-group-prepend col-5">
+			            <label style={{ backgroundColor:'lightblue'}} class="input-group-text" id="basic-addon5" for="SALARY">SALARY</label>
+                    </div>
+                	<input type="text" class="form-control" id="SALARY" placeholder="SALARY"
+                				onChange={(e) => setSALARY(e.target.value)} required='true' aria-describedby="basic-addon5"></input>
+			    </div>
 			</div>
         	<input type="submit" class="btn btn-primary" value="UPDATE" Link/>
 		</form>    
