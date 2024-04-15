@@ -5,6 +5,7 @@
 ## PARTE I. USANDO SPRING DATA DESDE CERO
 - Descargue el código de https://github.com/PDSW-ECI/spring-mvc-with-bootstrap
 - Ejecute el comando `docker run -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:latest`
+
 Paso a paso:
 1. Instalar y descargar docker mediante la pagina web.
 2. Tener abierto docker desktop
@@ -12,6 +13,7 @@ Paso a paso:
 4. Mediante el comando especificado crear el contenedor.
 
 - Descargar un cliente de base de datos: DBeaver
+
 Paso a paso:
 1. Instalar y descargar DBeaver.
 
@@ -28,6 +30,7 @@ Paso a paso creación de tablas y entorno mediante springboot:
 
 - Crear el siguiente modelo, use como base la clase `Configuration.java` ya creada:
 <img width="140" alt="image" src="https://github.com/PDSW-ECI/labs/assets/4140058/9df565e5-dd4f-4932-b655-49de6a7c78ea">
+
 Paso a paso para la creación del modelo:
 1. Crear e implementar clase en /src/main/java/co/edu/escuelaing/cvds/model/ llamada Employee.java
 2. Crear e implementar interfaz EmployeeRepository.java en /src/main/java/co/edu/escuelaing/cvds/repository/
